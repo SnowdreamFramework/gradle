@@ -5,6 +5,8 @@
  * opt property from system env, system.properties, project property
  */  
 ext.optProperty = { propertyName , defaultPropertyValue = "" ->
+
+     //system env
      if (System.getenv().containsKey(propertyName)) {
        return System.getenv(propertyName);
      }
@@ -14,7 +16,7 @@ ext.optProperty = { propertyName , defaultPropertyValue = "" ->
        return System.properties[propertyName];
      }
      
-     println "project property"
+     //project property
      if (project.hasProperty(propertyName)) {
        return project.getProperty(propertyName);
      }
