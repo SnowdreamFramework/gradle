@@ -3,6 +3,13 @@
 
 /** 
  * opt property from system env, system.properties, project property
+ *
+ * Usage: 
+ * 
+ * apply from: "util.gradle"
+ * 
+ * optProperty("GRADLE_HOME")
+ * 
  */  
 ext.optProperty = { propertyName , defaultPropertyValue = "" ->
 
