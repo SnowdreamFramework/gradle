@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply from: "util.gradle"
+apply from: "${rootDir}/gradle/scripts/util.gradle"
 
 dependencies {
     compile  fileTree(dir: 'libs', include: '*.jar')
