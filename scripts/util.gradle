@@ -30,3 +30,17 @@ ext.optProperty = { propertyName , defaultPropertyValue = "" ->
     
     return defaultPropertyValue;
  }
+ 
+ /** 
+  * check property from system env, system.properties, project property
+  *
+  * Usage: 
+  *  
+  * apply from: "util.gradle"
+  * 
+  * hasProperty("GRADLE_HOME")
+  * 
+  */  
+ ext.hasProperty = { propertyName ->
+     return (System.getenv().containsKey(propertyName) || System.properties.containsKey(propertyName) || project.hasProperty(propertyName));
+  }
