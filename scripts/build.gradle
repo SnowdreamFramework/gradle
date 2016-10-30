@@ -36,5 +36,5 @@ allprojects {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
-    //distributionUrl = "http://c2c8bf7314fb.repository.bugly.qq.com/gradle/gradle-${gradleVersion}-bin.zip"
+    distributionUrl = "http://android-mirror.bugly.qq.com:8080/gradle/gradle-${gradleVersion}-bin.zip"
 }
