@@ -19,6 +19,8 @@ install {
 }
 
 bintray {
+    user = optProperty("BINTRAY_USER")
+    key = optProperty("BINTRAY_API_KEY")
     configurations = ['archives']
     dryRun = false //Whether to run this as dry-run, without deploying
     publish = true //If version should be auto published after an upload
