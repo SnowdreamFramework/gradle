@@ -41,7 +41,7 @@ afterEvaluate { project ->
         sign configurations.archives
     }
 
-    task androidReleaseJar(type: Jar, dependsOn: assembleRelease) {
+    task androidReleaseJar(type: Jar,dependsOn: "assembleRelease") {
         from "$buildDir/intermediates/classes/release/"
         exclude '**/BuildConfig.class'
         exclude '**/R.class'
