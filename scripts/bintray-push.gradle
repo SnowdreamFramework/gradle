@@ -33,7 +33,7 @@ bintray {
         websiteUrl = optProperty("POM_URL")
         issueTrackerUrl = optProperty("POM_ISSUE_MANAGEMENT_URL")
         vcsUrl = optProperty("POM_SCM_URL")
-        licenses = [optProperty("POM_LICENCE_NAME")]
+        licenses = ['Apache-2.0']
         labels = []
         version {
             name = optProperty("POM_VERSION")
