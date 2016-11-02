@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
-apply from: "${rootDir}/gradle/scripts/util.gradle"
+apply from: "${rootDir}/gradle/plugins/util.gradle"
 
 group = optProperty("POM_GROUP_ID")
 archivesBaseName = optProperty("POM_NAME")

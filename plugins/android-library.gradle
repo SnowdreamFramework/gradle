@@ -1,5 +1,5 @@
-apply plugin: 'com.android.application'
-apply from: "${rootDir}/gradle/scripts/util.gradle"
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/gradle/plugins/util.gradle"
 
 dependencies {
     compile  fileTree(dir: 'libs', include: '*.jar')
@@ -20,7 +20,6 @@ android {
         versionName optProperty("VERSION_NAME")
         minSdkVersion Integer.parseInt(optProperty("MIN_SDK_VERSION"))
         targetSdkVersion Integer.parseInt(optProperty("TARGET_SDK_VERSION"))
-        applicationId optProperty("PACKAGE_NAME")
 
         testApplicationId optProperty("PACKAGE_NAME")+".test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
@@ -32,7 +31,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-    
+
     signingConfigs {
         release {
           if (hasProperty("KEYSTORE")) {
@@ -66,21 +65,7 @@ android {
     }
 }
 
-android.applicationVariants.all { variant ->
-    def apk = variant.outputs[0].outputFile;
-    def newName = "";
-
-    newName = apk.name.replace(project.name, optProperty("PROJECT_NAME", project.name) + "-v" + android.defaultConfig.versionName);
-    newName = newName.replace("-" + variant.buildType.name, "");
-    newName = newName.replace(".apk", "-" + variant.buildType.name.toLowerCase() + ".apk");
-
-    variant.outputs[0].outputFile = new File(apk.parentFile, newName);
-    if (variant.outputs[0].zipAlign) {
-        variant.outputs[0].zipAlign.outputFile = new File(apk.parentFile, newName.replace("-unaligned", ""));
-    }
-}
-
-android.applicationVariants.all { variant ->
+android.libraryVariants.all { variant ->
 
     task("generate${variant.name}Javadoc", type: Javadoc) {
         title = "android lib - "+ optProperty("PROJECT_NAME", project.name)+" v"+optProperty("VERSION_NAME")+" API"
