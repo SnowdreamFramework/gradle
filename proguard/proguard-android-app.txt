@@ -24,8 +24,6 @@
 # Some important configuration is based on the annotations in the code.
 # We have to specify what the annotations mean to ProGuard.
 
--include annotations.pro
-
 # General Options
 -verbose
 
